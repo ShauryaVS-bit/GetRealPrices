@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   Typography,
-  Grid,
   Divider,
 } from '@mui/material';
 
@@ -28,8 +27,8 @@ export default function About() {
             What We Offer
           </Typography>
 
-          <Grid container spacing={2} sx={{ mb: 4 }}>
-            <Grid item xs={12} md={4}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2, mb: 4 }}>
+            <Box sx={{ flex: 1 }}>
               <Card sx={{ height: '100%', backgroundColor: '#f5f5f5' }}>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -40,8 +39,8 @@ export default function About() {
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
+            </Box>
+            <Box sx={{ flex: 1 }}>
               <Card sx={{ height: '100%', backgroundColor: '#f5f5f5' }}>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -52,8 +51,8 @@ export default function About() {
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
+            </Box>
+            <Box sx={{ flex: 1 }}>
               <Card sx={{ height: '100%', backgroundColor: '#f5f5f5' }}>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -64,8 +63,8 @@ export default function About() {
                   </Typography>
                 </CardContent>
               </Card>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
 
           <Divider sx={{ my: 4 }} />
 

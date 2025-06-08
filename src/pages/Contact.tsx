@@ -4,7 +4,6 @@ import {
   CardContent,
   Typography,
   Link,
-  Grid,
   IconButton,
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
@@ -20,8 +19,8 @@ export default function Contact() {
             Contact Me
           </Typography>
           
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+            <Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <IconButton color="primary" size="large">
                   <EmailIcon />
@@ -37,9 +36,9 @@ export default function Contact() {
                   </Link>
                 </Box>
               </Box>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12}>
+            <Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <IconButton 
                   color="primary" 
@@ -64,9 +63,9 @@ export default function Contact() {
                   </Link>
                 </Box>
               </Box>
-            </Grid>
+            </Box>
 
-            <Grid item xs={12}>
+            <Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <IconButton 
                   color="primary" 
@@ -91,8 +90,8 @@ export default function Contact() {
                   </Link>
                 </Box>
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </CardContent>
       </Card>
     </Box>
