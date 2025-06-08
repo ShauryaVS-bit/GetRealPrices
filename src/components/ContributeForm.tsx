@@ -8,7 +8,6 @@ import {
   Typography,
   Alert,
   CircularProgress,
-  Grid,
   FormControl,
   InputLabel,
   Select,
@@ -104,60 +103,66 @@ export default function ContributeForm() {
           </Typography>
 
           <form onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Location"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
-                  required
-                  placeholder="e.g., New York, Los Angeles"
-                  size="medium"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Item/Service"
-                  value={item}
-                  onChange={(e) => setItem(e.target.value)}
-                  required
-                  placeholder="e.g., Coffee, Movie Ticket"
-                  size="medium"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth>
-                  <InputLabel>Currency</InputLabel>
-                  <Select
-                    value={selectedCurrency}
-                    onChange={(e) => setSelectedCurrency(e.target.value)}
-                    label="Currency"
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              <Box sx={{ display: 'flex', gap: 3, flexDirection: { xs: 'column', md: 'row' } }}>
+                <Box sx={{ flex: 1 }}>
+                  <TextField
+                    fullWidth
+                    label="Location"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    required
+                    placeholder="e.g., New York, Los Angeles"
                     size="medium"
-                  >
-                    {CURRENCIES.map((currency) => (
-                      <MenuItem key={currency} value={currency}>
-                        {currency}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label={`Price (in ${selectedCurrency})`}
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                  type="number"
-                  inputProps={{ step: "0.01", min: "0" }}
-                  placeholder={`e.g., 4.99 ${selectedCurrency}`}
-                  size="medium"
-                />
-              </Grid>
-              <Grid item xs={12}>
+                  />
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <TextField
+                    fullWidth
+                    label="Item/Service"
+                    value={item}
+                    onChange={(e) => setItem(e.target.value)}
+                    required
+                    placeholder="e.g., Coffee, Movie Ticket"
+                    size="medium"
+                  />
+                </Box>
+              </Box>
+
+              <Box sx={{ display: 'flex', gap: 3, flexDirection: { xs: 'column', md: 'row' } }}>
+                <Box sx={{ flex: 1 }}>
+                  <FormControl fullWidth>
+                    <InputLabel>Currency</InputLabel>
+                    <Select
+                      value={selectedCurrency}
+                      onChange={(e) => setSelectedCurrency(e.target.value)}
+                      label="Currency"
+                      size="medium"
+                    >
+                      {CURRENCIES.map((currency) => (
+                        <MenuItem key={currency} value={currency}>
+                          {currency}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <TextField
+                    fullWidth
+                    label={`Price (in ${selectedCurrency})`}
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                    type="number"
+                    inputProps={{ step: "0.01", min: "0" }}
+                    placeholder={`e.g., 4.99 ${selectedCurrency}`}
+                    size="medium"
+                  />
+                </Box>
+              </Box>
+
+              <Box>
                 <Button
                   type="submit"
                   variant="contained"
@@ -168,8 +173,8 @@ export default function ContributeForm() {
                 >
                   {loading ? <CircularProgress size={24} /> : 'Submit'}
                 </Button>
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
           </form>
 
           {error && (
